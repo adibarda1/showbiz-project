@@ -43,24 +43,25 @@
 </div>
 
 <!-- Pagination -->
-<div class="row"></div>
-<span class="pagination-data">
-    <label>Items per page: </label>
-    <select (change)="refreshBusinesses(true)" [(ngModel)]="perPage" id="select-sort">
-        <option [ngValue]="pageNumber" *ngFor="let pageNumber of availblePageNumbers">
-        {{pageNumber}}
-        </option>
-    </select>
-</span>
-<span class="pagination-data">
-    <span>
-        Current page: {{currentPage}}      
+<div class="pagination">
+    <span class="pagination-data">
+        <label>Items per page: </label>
+        <select (change)="refreshBusinesses(true)" [(ngModel)]="perPage" id="select-sort">
+            <option [ngValue]="pageNumber" *ngFor="let pageNumber of availblePageNumbers">
+            {{pageNumber}}
+            </option>
+        </select>
     </span>
-    <span>
-        ( {{fromRecord}} - {{toRecord}}  of {{totalItems}} )
+    <span class="pagination-data">
+        <span>
+            Current page: {{currentPage}}      
+        </span>
+        <span>
+            ( {{fromRecord}} - {{toRecord}}  of {{totalItems}} )
+        </span>
     </span>
-</span>
-<span class="pagination-data">
-    <button [disabled]="currentPage <= 1 || isLoading" (click)="changePage(currentPage-1)">Previous</button>
-    <button [disabled]="currentPage >= availablePages || isLoading" (click)="changePage(currentPage+1)">Next</button>
-</span>
+    <span class="pagination-data">
+        <button [disabled]="currentPage <= 1 || isLoading" (click)="changePage(currentPage-1)">Previous</button>
+        <button [disabled]="currentPage >= availablePages || isLoading" (click)="changePage(currentPage+1)">Next</button>
+    </span>
+</div>

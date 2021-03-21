@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { BusinessItem } from 'src/app/entities/business-item';
 import { ServerDataService } from 'src/app/services/server-data.service';
@@ -6,7 +6,8 @@ import { ServerDataService } from 'src/app/services/server-data.service';
 @Component({
   selector: 'app-businesses-list',
   templateUrl: './businesses-list.component.html',
-  styleUrls: ['./businesses-list.component.scss']
+  styleUrls: ['./businesses-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BusinessesListComponent {
   dataSource: any;

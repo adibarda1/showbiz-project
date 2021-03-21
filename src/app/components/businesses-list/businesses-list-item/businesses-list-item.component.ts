@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, EventEmitter, Output, ChangeDetectionStrategy } from '@angular/core';
 import { BusinessItem } from '../../../entities/business-item'
 
 @Component({
@@ -7,34 +7,15 @@ import { BusinessItem } from '../../../entities/business-item'
   styleUrls: ['./businesses-list-item.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BusinessesListItemComponent implements OnInit {
+export class BusinessesListItemComponent{
   @Input() item: BusinessItem;
 
   @Output() deleteRequest = new EventEmitter<{ event: any; uid: string }>();
   public initials: string;
 
-  private colors = [
-    '#EB7181', 
-    '#468547', 
-    '#ad9534', 
-    '#3670B2', 
-    '#ea0f7c',
-    '#4434ad'
-  ];
-  circleColor: string;
-  counterIndex: number = 0;
   constructor() {
   }
   
-  ngOnInit() {
-    
-  }
-    
-  getCircleColor(){
-    const randomIndex = Math.floor(Math.random() * Math.floor(this.colors.length));
-    return this.colors[randomIndex];
-  }
-
   deleteClicked(event: any) {
     this.deleteRequest.emit({ event, uid: this.item.uid });
   }

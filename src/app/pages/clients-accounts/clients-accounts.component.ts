@@ -94,7 +94,9 @@ export class ClientsAccountsComponent implements OnInit {
     if (this.searchForm.controls.filter.value){
       this.filter = this.searchForm.controls.filter.value;
       this.refreshBusinesses(true);
-      this.filter ='';
+    } else if (this.searchForm.controls.filter.value == ''){
+      this.filter = null;
+      this.refreshBusinesses(true);
     }
   }
 }
