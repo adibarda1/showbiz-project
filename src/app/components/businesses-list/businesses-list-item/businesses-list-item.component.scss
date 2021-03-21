@@ -1,0 +1,36 @@
+.businessCard{
+    background: #574d52;
+    max-width: 800px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    color: #f1e4eb;
+}
+
+.circle{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    background-color: royalblue;
+}
+
+mat-card-subtitle{
+    margin-bottom: 8px;
+    font-size: 12px;;
+    color: #daccd2;
+}
+.title{
+    font-size: 13px;
+}
+
+.businessHeader{
+    width: 1000px;
+}
+
+.planName{
+    position: absolute;
+    margin-left: 500px;
+}

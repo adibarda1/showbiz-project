@@ -1,0 +1,8 @@
+<table id="table-container">
+    <tbody>
+      <tr *ngFor="let item of this.businesses">
+        <app-businesses-list-item (deleteRequest)="deleteItem($event)" [item]="item"></app-businesses-list-item>
+      </tr>
+    </tbody>
+  </table>
+  

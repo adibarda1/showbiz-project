@@ -1,0 +1,6 @@
+<mat-list class="navigation-bar">
+  <mat-list-item *ngFor="let navOption of navOptions">
+      <mat-icon>account_circle</mat-icon>
+      <a [routerLink]="navOption.path" routerLinkActive="active">{{navOption.name}}</a>
+  </mat-list-item>
+</mat-list>
