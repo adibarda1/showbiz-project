@@ -1,6 +1,7 @@
 <h2>Clients Accounts</h2>
 <!-- Sort and filter elements -->
 <div class="buttonContainer">
+    <!-- Sort By -->
     <span id="sort-by">
         <label>Sort By: </label>
         <select (change)="refreshBusinesses(true)" [(ngModel)]="currentSortType" id="select-sort-type">
@@ -9,6 +10,7 @@
               </option>
           </select>
     </span>
+    <!-- Order By Asc/Desc-->
     <span  id="sort-by-order">
         <label>Order: </label>
         <select (change)="refreshBusinesses(true)" [(ngModel)]="currentSortOrderType" id="select-sort-order">
@@ -17,6 +19,7 @@
               </option>
           </select>
     </span>
+    <!-- Search -->
     <span  id="filter-results">
         <form (ngSubmit)="onSearch()" [formGroup]="searchForm" class="search-form">
             <mat-form-field id="search-field">
@@ -24,9 +27,14 @@
               <input type="search" matInput placeholder="Search by letters and numbers..." formControlName="filter">
             </mat-form-field>
             <button type="submit" [disabled]="searchForm.invalid">Search</button>
+            <mat-error id="search-error" *ngIf="f.filter.errors">
+                Please search by digits and letters only
+            </mat-error>
           </form>
     </span>
+    <!-- Add new button -->
     <button mat-raised-button class="newButton" (click)="addClient()">New Client Account</button>
+    <!-- Error -->
     <div id="error-container"*ngIf="isErrorMode">Error retrieving data from server</div>
 </div>
 <!-- Table element -->

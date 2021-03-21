@@ -42,16 +42,17 @@ export class ClientsAccountsComponent implements OnInit {
   searchForm: FormGroup;
   
   addClient(){
-    console.log('add client')
     this.router.navigate(['add-account']);
   }
 
   ngOnInit(): void {
     this.refreshBusinesses();
     this.searchForm = this.formBuilder.group({
-      filter: ['', Validators.required],
+      filter: ['', Validators.pattern('[a-zA-Z0-9]*')],
     });
   }
+
+  get f() { return this.searchForm.controls; }
 
   refreshBusinesses(resetCurrentPage = false){
     this.isLoading = true; //This flag will prevent pagination during data loading
@@ -90,10 +91,10 @@ export class ClientsAccountsComponent implements OnInit {
   
   //Send a get request when searching for a string 
   onSearch(){
-    console.log(this.searchForm.controls.filter.value)
     if (this.searchForm.controls.filter.value){
       this.filter = this.searchForm.controls.filter.value;
-      this.refreshBusinesses();
+      this.refreshBusinesses(true);
+      this.filter ='';
     }
   }
 }

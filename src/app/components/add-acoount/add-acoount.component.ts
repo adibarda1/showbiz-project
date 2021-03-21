@@ -25,18 +25,16 @@ export class AddAcoountComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       country_name: [''],
-      phone_info: ['', [Validators.pattern("^[0-9]*$"), Validators.minLength(8)]],
+      phone_info: ['', [Validators.pattern("^[0-9\-]*$"), Validators.minLength(8)]],
       meeting_location: ['']
     });
 
-    // convenience getter for easy access to form fields
-    
   }
+  // convenience getter for easy access to form fields
   get f() { return this.addForm.controls; }
 
   onSubmit() {
     this.serverDataService.addBusiness(this.addForm.value).subscribe( data => {
-      alert('Account was added successfully');
         this.router.navigate(['']);
     }, err => {
       alert('Error while adding account, please try again');
